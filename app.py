@@ -7,7 +7,7 @@ def get_episodes():
     conn = sqlite3.connect('podcasts.db')
     conn.row_factory = sqlite3.Row
     rows = conn.execute(
-        "SELECT title, date, video_id, description FROM episodes ORDER BY id DESC"
+        "SELECT title, date, video_id, description FROM episodes ORDER BY date DESC"
     ).fetchall()
     conn.close()
     return rows
