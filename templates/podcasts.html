@@ -28,7 +28,7 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="logo" class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
         <h1>البودكاستات</h1>
     </header>
     <nav>
@@ -38,32 +38,17 @@
         <a href="/articles">قسم المحتوى المكتوب</a>
         <a href="/contact">اتصل بنا</a>
     </nav>
-    <div class="container">
-        <h2>حلقات البودكاست</h2>
-        <p>هنا يتم عرض حلقات البودكاست الخاصة بالشبكة.</p>
-    </div>
-    <div class="card">
-        <h2>بودكاست شخصيات | رحلة توثيق رموز السودان وصناع أثره</h2>
-        <div class="date">6 يونيو 2026</div>
-        <div class="video" onclick="this.innerHTML='&lt;iframe src=\'https://www.youtube.com/embed/Lz4t6aVwbc4?autoplay=1&cc_load_policy=1\' allowfullscreen&gt;&lt;/iframe&gt;'">
-        <img src="https://img.youtube.com/vi/Lz4t6aVwbc4/hqdefault.jpg" alt="thumbnail">
+{% for ep in episodes %}
+ <div class="card">
+    <h2>{{ ep['title'] }}</h2>
+    <div class="date">{{ ep['date'] }}</div>
+    <div class="video" onclick="this.innerHTML='&lt;iframe src=\'https://www.youtube.com/embed/{{ ep['video_id'] }}?autoplay=1&cc_load_policy=1\' allowfullscreen&gt;&lt;/iframe&gt;'">
+        <img src="https://img.youtube.com/vi/{{ ep['video_id'] }}/hqdefault.jpg" alt="thumbnail">
         <div class="play"></div>
     </div>
-    <p>بودكاست شخصيات | الحلقة الختامية للموسم الأول 🇸🇩✨</p>
-
-<p>بعد رحلة امتدت عبر عشرات الشخصيات السودانية الملهمة، نصل معكم إلى ختام الموسم الأول من بودكاست "شخصيات"؛ رحلة حاولنا من خلالها إعادة تسليط الضوء على رموز السودان الذين صنعوا أثراً في العلم، والأدب، والفن، والإعلام، والسياسة، والإنسانية.</p>
-
-<p>في هذه الحلقة الخاصة نعود بكم إلى كواليس البودكاست، ونحكي قصة الفكرة منذ ميلادها، والتحديات التي واجهت الفريق، والجهود التي بُذلت حتى يخرج هذا العمل بالصورة التي تابعتموها طوال الموسم.</p>
-
-<p>💛 شكراً لكل من كان جزءاً من هذه الرحلة...</p>
-<p>للمستمعين، وللمبدعين، ولكل من دعم الفكرة أو شاركها أو آمن برسالتها.</p>
-
-<p>🔹 تنويه:</p>
-<p>من الأسماء المهمة التي لم يتسع زمن الحلقة لذكرها المبدعتان رزان مكي وآريج حسن، اللتان كان لهما دور بارز ومقدر في أعمال المونتاج والإخراج الفني خلال الموسم. وسيتم بإذن الله تخصيص لقاءات وحلقات خاصة للتعريف بتجربتهما وجهودهما ضمن رحلة البودكاست.</p>
-
-<p>🔥 وهذه ليست النهاية...</p>
-<p>بل بداية موسم جديد أكثر عمقاً وإلهاماً بإذن الله.</p>
-    </div>
+    <p>{{ ep['description'] | safe }}</p>
+ </div>
+{% endfor %}
     <footer>
         <p>صفحاتنا</p>
         <div class="social">
