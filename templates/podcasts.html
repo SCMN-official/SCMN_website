@@ -9,7 +9,7 @@
         header { background: #111; padding: 13px; text-align: center; border-bottom: 3px solid #FFD700; }
         header h1 { color: #FFD700; margin: 0; }
         .logo { width: 120px; height: auto; margin-bottom: 10px; }
-        nav { display: flex; justify-content: center; background: #1a1a1a; padding: 15px; flex-wrap: wrap; gap: 25px; }
+        nav { display: flex; justify-content: center; background: #1a1a1a; padding: 15px; flex-wrap: nowrap; gap: 25px; overflow-x: auto; }
         nav a { color: #fff; padding: 8px 14px; text-decoration: none; border-radius: 5px; transition: 0.2s; }
         nav a:hover { color: #FFD700; background: #222; }
         .container { max-width: 800px; margin: 20px auto; padding: 20px; background: #0d0d0d; border: 1px solid #FFD700; border-radius: 8px; }
@@ -32,10 +32,10 @@
         .sidebar a { color: #fff; text-decoration: none; display: block; padding: 10px; border-radius: 4px; transition: 0.2s; }
         .sidebar a:hover { background: #FFD700; color: #000; }
         .main-content { flex: 1; padding: 20px; }
+        .nav a, nav a { border: 1px solid #FFD700; padding: 8px 14px; border-radius: 6px; margin: 6px; display: inline-block; background: #111; color: #fff; text-decoration: none; }
         @media(max-width: 768px) {
         .layout { flex-direction: column; }
         .sidebar { width: 90%; margin: 10px auto; border-radius: 8px; height: auto; position: relative; }
-        .nav a, nav a { border: 1px solid #FFD700; padding: 8px 14px; border-radius: 6px; margin: 6px; display: inline-block; background: #111; color: #fff; text-decoration: none; }
         }
     </style>
 </head>
