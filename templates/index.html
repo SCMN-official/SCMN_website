@@ -34,7 +34,70 @@
     </nav>
     <div class="container">
         <h2>أحدث المقالات</h2>
-        <p>هنا يتم عرض المحتوى الإعلامي الخاص بالشبكة.</p>
+        <p>هنا يتم عرض المحتوى الخاص بالشبكة.</p>
+    </div>
+    <div class="latest-episodes">
+  <h2>أحدث الحلقات</h2>
+  
+  {% if ep1 %}
+  <div class="card">
+    <h3>{{ ep1.title }}</h3>
+    <p>{{ ep1.date }}</p>
+    <div class="video" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/{{ ep1.video_id }}?autoplay=1\' frameborder=\'0\' allowfullscreen></iframe>'">
+      <img src="https://img.youtube.com/vi/{{ ep1.video_id }}/hqdefault.jpg" alt="thumbnail">
+      <div class="play"></div>
+    </div>
+    <p>{{ ep1.description | safe }}</p>
+  </div>
+  {% endif %}
+
+  {% if ep2 %}
+  <div class="card">
+    <h3>{{ ep2.title }}</h3>
+    <p>{{ ep2.date }}</p>
+    <div class="video" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/{{ ep2.video_id }}?autoplay=1\' frameborder=\'0\' allowfullscreen></iframe>'">
+      <img src="https://img.youtube.com/vi/{{ ep2.video_id }}/hqdefault.jpg" alt="thumbnail">
+      <div class="play"></div>
+    </div>
+    <p>{{ ep2.description | safe }}</p>
+  </div>
+  {% endif %}
+
+  {% if ep3 %}
+  <div class="card">
+    <h3>{{ ep3.title }}</h3>
+    <p>{{ ep3.date }}</p>
+    <div class="video" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/{{ ep3.video_id }}?autoplay=1\' frameborder=\'0\' allowfullscreen></iframe>'">
+      <img src="https://img.youtube.com/vi/{{ ep3.video_id }}/hqdefault.jpg" alt="thumbnail">
+      <div class="play"></div>
+    </div>
+    <p>{{ ep3.description | safe }}</p>
+  </div>
+  {% endif %}
+
+  {% if ep4 %}
+  <div class="card">
+    <h3>{{ ep4.title }}</h3>
+    <p>{{ ep4.date }}</p>
+    <div class="video" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/{{ ep4.video_id }}?autoplay=1\' frameborder=\'0\' allowfullscreen></iframe>'">
+      <img src="https://img.youtube.com/vi/{{ ep4.video_id }}/hqdefault.jpg" alt="thumbnail">
+      <div class="play"></div>
+    </div>
+    <p>{{ ep4.description | safe }}</p>
+  </div>
+  {% endif %}
+
+  {% if ep5 %}
+  <div class="card">
+    <h3>{{ ep5.title }}</h3>
+    <p>{{ ep5.date }}</p>
+    <div class="video" onclick="this.innerHTML='<iframe src=\'https://www.youtube.com/embed/{{ ep5.video_id }}?autoplay=1\' frameborder=\'0\' allowfullscreen></iframe>'">
+      <img src="https://img.youtube.com/vi/{{ ep5.video_id }}/hqdefault.jpg" alt="thumbnail">
+      <div class="play"></div>
+    </div>
+    <p>{{ ep5.description | safe }}</p>
+  </div>
+  {% endif %}
     </div>
     <footer>
         <p>صفحاتنا</p>
