@@ -13,8 +13,18 @@ def get_episodes():
     return rows
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    conn = sqlite3.connect('podcasts.db')
+    conn.row_factory = sqlite3.Row
+    
+    ep1 = conn.execute("SELECT * FROM episodes WHERE title LIKE '%شخصيات%' ORDER BY date DESC LIMIT 1").fetchone()
+    ep2 = conn.execute("SELECT * FROM episodes WHERE title LIKE '%ونسة%' ORDER BY date DESC LIMIT 1").fetchone()
+    ep3 = conn.execute("SELECT * FROM episodes WHERE title LIKE '%حكاوي%' ORDER BY date DESC LIMIT 1").fetchone()
+    ep4 = conn.execute("SELECT * FROM episodes WHERE title LIKE '%ثانية%' ORDER BY date DESC LIMIT 1").fetchone()
+    ep5 = conn.execute("SELECT * FROM episodes WHERE title LIKE '%ضفاف%' ORDER BY date DESC LIMIT 1").fetchone()
+    
+    conn.close()
+    return render_template('index.html', ep1=ep1, ep2=ep2, ep3=ep3, ep4=ep4, ep5=ep5)
 
 @app.route('/podcasts')
 def podcasts():
